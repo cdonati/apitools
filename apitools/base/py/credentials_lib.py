@@ -45,7 +45,8 @@ try:
     _FASTENERS_AVAILABLE = True
 except ImportError as import_error:
     server_env = os.environ.get('SERVER_SOFTWARE', '')
-    if not (server_env.startswith('Development') or
+    if not (server_env.startswith('AppScaleServer') or
+            server_env.startswith('Development') or
             server_env.startswith('Google App Engine')):
         raise import_error
     _FASTENERS_AVAILABLE = False
